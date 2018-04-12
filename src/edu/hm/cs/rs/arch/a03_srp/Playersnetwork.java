@@ -15,6 +15,11 @@ public class Playersnetwork implements PlayerInput {
 	private Socket socket1;
 	private Socket socket2;
 	
+	private BufferedReader in1;
+	private BufferedReader in2;
+	private BufferedWriter out1;
+	private BufferedWriter out2;
+	
 	public Playersnetwork() {
 		initialize();
 	}
@@ -31,6 +36,11 @@ public class Playersnetwork implements PlayerInput {
 			socket2 = ss2.accept();
 			System.out.println("Sock2 verbunden");
 			ss2.close();
+			
+			 in1 = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
+			 in2 = new BufferedReader(new InputStreamReader(socket2.getInputStream()));
+			 out1 = new BufferedWriter(new OutputStreamWriter(socket1.getOutputStream()));
+			 out2 = new BufferedWriter(new OutputStreamWriter(socket2.getOutputStream()));
 		}catch(IOException e) {}
 	}
 	
@@ -71,12 +81,6 @@ public class Playersnetwork implements PlayerInput {
 		int picka=0;
 		int pickb=0;
 		System.out.println("Start ---");
-		
-		try(BufferedReader in1 = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
-			BufferedReader in2 = new BufferedReader(new InputStreamReader(socket2.getInputStream()));
-			BufferedWriter out1 = new BufferedWriter(new OutputStreamWriter(socket1.getOutputStream()));
-			BufferedWriter out2 = new BufferedWriter(new OutputStreamWriter(socket2.getOutputStream()));
-				){
 
 			int[] choiceA = choices[0];
 			int[] choiceB = choices[1];
@@ -90,7 +94,8 @@ public class Playersnetwork implements PlayerInput {
 			
 				messageA = getPlayerMessage(choiceA,"PlayerA");
 				messageB = getPlayerMessage(choiceB,"PlayerB");
-				
+			
+			try {
 				out1.write(messageA); 
 				out1.flush();
 			
@@ -120,11 +125,31 @@ public class Playersnetwork implements PlayerInput {
 				out2.flush();
 			 }
 			 while(!b);
-		
-		}
-		catch (IOException e) {}
+			}
+			catch(IOException e) {}
 		
 		return new int[]{picka,pickb};
 	
+	}
+	
+	@Override
+	public void close() throws IOException {
+		socket1.close();
+		socket2.close();
+		in1.close();
+		in2.close();
+		out1.close();
+		out2.close();
+	}
+
+	@Override
+	public void output(int[] playerpoints) {
+		try {
+			out1.write("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1]);
+			out1.flush();
+			out2.write("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1]);
+			out2.flush();
+		}
+		catch(IOException e){}
 	}
 }
