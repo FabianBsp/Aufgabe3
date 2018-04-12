@@ -5,6 +5,7 @@
 package edu.hm.cs.rs.arch.a03_srp; //X
 
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Monolithic version of Undercut. Violates lots of design principles.
@@ -19,7 +20,8 @@ public class UndercutMono {
      * @exception IOException on incomplete input.
      */
     public static void main(String... args) throws IOException {
-        new UndercutMono().play();
+        //System.out.println(System.getProperty("java.io.tmp"));
+    	new UndercutMono().play();
     }
 
     /**
