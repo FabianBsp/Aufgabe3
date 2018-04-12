@@ -9,9 +9,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.stream.IntStream;
 
-import aufg3.interfaces.PlayerInput;
+import aufg3.interfaces.PlayerDialog;
 
-public class Playersnetwork implements PlayerInput {
+public class Playersnetwork implements PlayerDialog {
 	private Socket socket1;
 	private Socket socket2;
 	

@@ -6,9 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import aufg3.interfaces.PlayerInput;
+import aufg3.interfaces.PlayerDialog;
 
-public class Playersfile implements PlayerInput {
+public class Playersfile implements PlayerDialog {
 	private FileInputStream fileinput;
 	private PrintWriter fileoutput;
 	
