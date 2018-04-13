@@ -2,7 +2,6 @@ package edu.hm.cs.rs.arch.a03_srp;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -49,6 +48,7 @@ public class Playersfile implements PlayerDialog {
 	@Override
 	public void output(int[] playerpoints) {
 		fileoutput.println(playerpoints[0]+" "+playerpoints[1]);
+		fileoutput.flush();
 	}
 
 }

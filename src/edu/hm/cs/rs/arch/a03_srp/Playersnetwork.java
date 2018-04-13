@@ -92,7 +92,8 @@ public class Playersnetwork implements PlayerDialog {
 				messageB = messageAsString(choiceB,"PlayerB");
 			
 			try {
-				out1.write(messageA); 
+				out1.write(messageA); // potentielles Problem: a wird gesendet, b aber nicht. a steht in file,
+									  // beide müssen ihren Wert neu eingeben -> ein Wert zu viel bei a.
 				out1.flush();
 			
 				out2.write(messageB); 

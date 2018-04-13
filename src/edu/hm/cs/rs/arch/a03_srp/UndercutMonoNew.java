@@ -2,32 +2,55 @@ package edu.hm.cs.rs.arch.a03_srp;
 
 import java.io.IOException;
 
+import org.junit.Rule;
+
 import aufg3.interfaces.PlayerDialog;
 import aufg3.interfaces.Properties;
+import aufg3.interfaces.Rules;
 import edu.hm.cs.rs.arch.playmode.Chaos;
 import edu.hm.cs.rs.arch.playmode.Normal;
+import edu.hm.cs.rs.arch.rules.RuleNormal;
 
 public class UndercutMonoNew {
 
 	public static void main(String[] args) {
-		Properties properties = new Chaos();
+		Properties properties = new Normal();
 		PlayerDialog netinput = new Playersfile();
+		Rules rule = new RuleNormal();
 		
-		new UndercutMonoNew().play(properties,netinput);
+		new UndercutMonoNew().play(properties,netinput,rule);
 	}
 	
-	public void play(Properties properties,PlayerDialog dialog){
-		for(int i=0; i<3; i++) {
+	public void play(Properties properties,PlayerDialog dialog,Rules rule){
+		int playerAScore = 0;
+        int playerBScore = 0;
+        
+		while(true) {
 			
 			int[][] choices = getPlayerAandPlayerBChoices(properties);
-			int[] arr = dialog.input(choices);
-			System.out.println("Player A : " +arr[0]+"  Player B : "+arr[1]);
+			int[] inputAB = dialog.input(choices);
+			int[] newscores = rule.calculateNewScores(playerAScore, playerBScore, inputAB[0], inputAB[1]);
+			
+			if(threeTimesEqualOrFinish(newscores,properties)) {
+				
+				
+				try {
+					dialog.close();
+				}
+				catch(IOException e){}
+			}
+			else {
+				playerAScore = newscores[0];
+				playerBScore = newscores[1];
+			}
+			
+			System.out.println("Player A : " +inputAB[0]+"  Player B : "+inputAB[1]);
 			
 		}
-		try {
-			dialog.close();
-		}
-		catch(IOException e){}
+	}
+	
+	private boolean threeTimesEqualOrFinish(int[] scorePlayerAB,Properties properties) {
+		return (scorePlayerAB[0] == -1 && scorePlayerAB[1] == -1) || (scorePlayerAB[0] >= properties.getScoreToWin() || scorePlayerAB[1] >= properties.getScoreToWin());
 	}
 	
 	private int[][] getPlayerAandPlayerBChoices(Properties properties){
