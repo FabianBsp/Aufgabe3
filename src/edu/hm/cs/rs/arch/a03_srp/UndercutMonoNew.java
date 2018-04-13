@@ -9,13 +9,14 @@ import aufg3.interfaces.Properties;
 import aufg3.interfaces.Rules;
 import edu.hm.cs.rs.arch.playmode.Chaos;
 import edu.hm.cs.rs.arch.playmode.Normal;
+import edu.hm.cs.rs.arch.playmode.ShortGame;
 import edu.hm.cs.rs.arch.rules.RuleNormal;
 
 public class UndercutMonoNew {
 
 	public static void main(String[] args) {
-		Properties properties = new Normal();
-		PlayerDialog inputinterface = new Playersnetwork();
+		Properties properties = new ShortGame();
+		PlayerDialog inputinterface = new Playersfile();
 		Rules rule = new RuleNormal();
 		
 		new UndercutMonoNew().play(properties,inputinterface,rule);
@@ -33,6 +34,7 @@ public class UndercutMonoNew {
 			
 			if(threeTimesEqualOrFinish(newscores,properties)) {
 				try {
+					dialog.output(new int[]{playerAScore,playerBScore});
 					dialog.close();
 				}
 				catch(IOException e){}
