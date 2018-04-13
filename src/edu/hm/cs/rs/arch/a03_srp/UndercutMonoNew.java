@@ -11,7 +11,7 @@ public class UndercutMonoNew {
 
 	public static void main(String[] args) {
 		Properties properties = new Chaos();
-		PlayerDialog netinput = new Playerskeyboard();
+		PlayerDialog netinput = new Playersfile();
 		
 		new UndercutMonoNew().play(properties,netinput);
 	}
