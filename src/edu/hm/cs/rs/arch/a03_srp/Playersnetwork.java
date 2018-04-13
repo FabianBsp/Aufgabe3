@@ -44,7 +44,7 @@ public class Playersnetwork implements PlayerDialog {
 		}catch(IOException e) {}
 	}
 	
-	private String getPlayerMessage(int[] choice, String playertyp) {
+	private String messageAsString(int[] choice, String playertyp) {
 		String message = "";
 		
 		for(int i=0; i<choice.length; i++) {
@@ -80,20 +80,16 @@ public class Playersnetwork implements PlayerDialog {
 	public int[] input(int[]... choices) {
 		int picka=0;
 		int pickb=0;
-		System.out.println("Start ---");
 
 			int[] choiceA = choices[0];
 			int[] choiceB = choices[1];
-			
-			System.out.println(choiceA.length + "        " + choiceB.length);
-			
 			boolean b;
 			
 			String messageA = "";
 			String messageB = "";
 			
-				messageA = getPlayerMessage(choiceA,"PlayerA");
-				messageB = getPlayerMessage(choiceB,"PlayerB");
+				messageA = messageAsString(choiceA,"PlayerA");
+				messageB = messageAsString(choiceB,"PlayerB");
 			
 			try {
 				out1.write(messageA); 
