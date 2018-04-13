@@ -142,9 +142,9 @@ public class Playersnetwork implements PlayerDialog {
 	@Override
 	public void output(int[] playerpoints) {
 		try {
-			out1.write("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1]);
+			out1.write("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1] +"\n");
 			out1.flush();
-			out2.write("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1]);
+			out2.write("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1] + "\n");
 			out2.flush();
 		}
 		catch(IOException e){}

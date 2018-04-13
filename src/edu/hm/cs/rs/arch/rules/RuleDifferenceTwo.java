@@ -20,7 +20,7 @@ public class RuleDifferenceTwo implements Rules {
 		}
 		else if(inputA == inputB){
 			counterequals++;
-			if(counterequals == 3) {
+			if(counterequals > 3) {
 				return new int[]{-1,-1};
 			}
 		}

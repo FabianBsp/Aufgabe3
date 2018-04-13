@@ -15,10 +15,10 @@ public class UndercutMonoNew {
 
 	public static void main(String[] args) {
 		Properties properties = new Normal();
-		PlayerDialog netinput = new Playersfile();
+		PlayerDialog inputinterface = new Playersnetwork();
 		Rules rule = new RuleNormal();
 		
-		new UndercutMonoNew().play(properties,netinput,rule);
+		new UndercutMonoNew().play(properties,inputinterface,rule);
 	}
 	
 	public void play(Properties properties,PlayerDialog dialog,Rules rule){
@@ -32,18 +32,17 @@ public class UndercutMonoNew {
 			int[] newscores = rule.calculateNewScores(playerAScore, playerBScore, inputAB[0], inputAB[1]);
 			
 			if(threeTimesEqualOrFinish(newscores,properties)) {
-				
-				
 				try {
 					dialog.close();
 				}
 				catch(IOException e){}
+				return;
 			}
 			else {
 				playerAScore = newscores[0];
 				playerBScore = newscores[1];
+				dialog.output(new int[]{playerAScore,playerBScore});
 			}
-			
 			System.out.println("Player A : " +inputAB[0]+"  Player B : "+inputAB[1]);
 			
 		}
