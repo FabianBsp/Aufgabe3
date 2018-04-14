@@ -2,21 +2,19 @@ package edu.hm.cs.rs.arch.a03_srp;
 
 import java.io.IOException;
 
-import org.junit.Rule;
-
 import aufg3.interfaces.PlayerDialog;
 import aufg3.interfaces.Properties;
 import aufg3.interfaces.Rules;
-import edu.hm.cs.rs.arch.playmode.Chaos;
-import edu.hm.cs.rs.arch.playmode.Normal;
-import edu.hm.cs.rs.arch.playmode.ShortGame;
-import edu.hm.cs.rs.arch.rules.RuleNormal;
+import edu.hm.cs.fs.chaos.Chaos;
+import edu.hm.cs.fs.playersnetwork.Playersnetwork;
+import edu.hm.cs.fs.rulenormal.RuleNormal;
+import edu.hm.cs.fs.shortgame.ShortGame;
 
 public class UndercutMonoNew {
 
 	public static void main(String[] args) {
 		Properties properties = new ShortGame();
-		PlayerDialog inputinterface = new Playersfile();
+		PlayerDialog inputinterface = new Playersnetwork();
 		Rules rule = new RuleNormal();
 		
 		new UndercutMonoNew().play(properties,inputinterface,rule);

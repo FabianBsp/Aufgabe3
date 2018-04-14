@@ -1,10 +1,11 @@
-package edu.hm.cs.rs.arch.a03_srp;
+package edu.hm.cs.fs.playersnetwork;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.stream.IntStream;
@@ -17,8 +18,8 @@ public class Playersnetwork implements PlayerDialog {
 	
 	private BufferedReader in1;
 	private BufferedReader in2;
-	private BufferedWriter out1;
-	private BufferedWriter out2;
+	private PrintWriter out1;
+	private PrintWriter out2;
 	
 	public Playersnetwork() {
 		initialize();
@@ -39,8 +40,8 @@ public class Playersnetwork implements PlayerDialog {
 			
 			 in1 = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
 			 in2 = new BufferedReader(new InputStreamReader(socket2.getInputStream()));
-			 out1 = new BufferedWriter(new OutputStreamWriter(socket1.getOutputStream()));
-			 out2 = new BufferedWriter(new OutputStreamWriter(socket2.getOutputStream()));
+			 out1 = new PrintWriter(new OutputStreamWriter(socket1.getOutputStream()));
+			 out2 = new PrintWriter(new OutputStreamWriter(socket2.getOutputStream()));
 		}catch(IOException e) {}
 	}
 	
@@ -106,7 +107,7 @@ public class Playersnetwork implements PlayerDialog {
 					picka = pickA;
 					break;
 				}
-				out1.write(messageA); 
+				out1.println(messageA); 
 				out1.flush();
 			 }
 			 while(!b);
@@ -118,7 +119,7 @@ public class Playersnetwork implements PlayerDialog {
 					pickb = pickB;
 					break;
 				}
-				out2.write(messageB); 
+				out2.println(messageB); 
 				out2.flush();
 			 }
 			 while(!b);
@@ -141,12 +142,9 @@ public class Playersnetwork implements PlayerDialog {
 
 	@Override
 	public void output(int[] playerpoints) {
-		try {
-			out1.write("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1] +"\n");
+			out1.println("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1]);
 			out1.flush();
-			out2.write("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1] + "\n");
+			out2.println("PlayerA: "+playerpoints[0]+"  PlayerB: "+playerpoints[1]);
 			out2.flush();
-		}
-		catch(IOException e){}
 	}
 }

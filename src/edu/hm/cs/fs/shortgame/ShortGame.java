@@ -1,17 +1,17 @@
-package edu.hm.cs.rs.arch.playmode;
+package edu.hm.cs.fs.shortgame;
 
 import aufg3.interfaces.Properties;
 
-public class Normal implements Properties {
+public class ShortGame implements Properties {
 
 	@Override
 	public int getScoreToWin() {
-		return 40;
+		return 12;
 	}
 
 	@Override
 	public int[][] getChoices() {
-		return new int[][]{{1,5}};
+		return new int[][]{{1,3}};
 	}
 
 }

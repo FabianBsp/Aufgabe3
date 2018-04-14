@@ -1,4 +1,4 @@
-package edu.hm.cs.rs.arch.playmode;
+package edu.hm.cs.fs.chaos;
 
 import aufg3.interfaces.Properties;
 

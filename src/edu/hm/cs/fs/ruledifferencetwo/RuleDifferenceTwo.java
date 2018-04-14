@@ -1,4 +1,4 @@
-package edu.hm.cs.rs.arch.rules;
+package edu.hm.cs.fs.ruledifferencetwo;
 
 import aufg3.interfaces.Rules;
 

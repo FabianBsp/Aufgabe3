@@ -1,20 +1,19 @@
-package edu.hm.cs.rs.arch.rules;
+package edu.hm.cs.fs.ruletopf;
 
 import aufg3.interfaces.Rules;
 
-public class RuleNormal implements Rules {
+public class RuleTopf implements Rules {
 	private int counterequals = 0;
+	private int topf = 0;
 	
-	public RuleNormal() {}
-
 	@Override
-	public int[] calculateNewScores(int scorePlayerA, int scorePlayerB, int inputA, int inputB){
+	public int[] calculateNewScores(int scorePlayerA, int scorePlayerB, int inputA, int inputB) {
 		if(Math.abs(inputA - inputB) == 1) {
 			if(inputA < inputB) {
-				scorePlayerA += (inputA + inputB);
+				scorePlayerA += topf;
 			}
 			else {
-				scorePlayerB += (inputA + inputB);
+				scorePlayerB += topf;
 			}
 			counterequals = 0;
 		}
@@ -23,8 +22,7 @@ public class RuleNormal implements Rules {
 			if(counterequals > 3){
 				return new int[] {-1,-1};
 			}
-			scorePlayerA += inputA;
-			scorePlayerB += inputB;
+			topf += (inputA+inputB);
 		}
 		else {
 			scorePlayerA += inputA;
@@ -33,5 +31,4 @@ public class RuleNormal implements Rules {
 		}
 		return new int[] {scorePlayerA,scorePlayerB};
 	}
-
 }

@@ -1,4 +1,4 @@
-package edu.hm.cs.rs.arch.a03_srp;
+package edu.hm.cs.fs.playersfile;
 
 import java.io.BufferedReader;
 import java.io.File;
