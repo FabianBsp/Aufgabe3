@@ -26,7 +26,7 @@ public class Playersfile implements PlayerDialog {
 	}
 
 	@Override
-	public int[] input(int[]... choices) {
+	public int input(int playertyp,int maxchoice,int minchoice,int[]... choices) {
 		int choiceA = 0;
 		int choiceB = 0;
 		try {
@@ -36,7 +36,7 @@ public class Playersfile implements PlayerDialog {
 			 choiceB = choiceB - '0';
 		}
 		catch(IOException e){}
-		return new int[]{choiceA,choiceB};
+		return 0;//new int[]{choiceA,choiceB};
 	}
 
 	@Override
@@ -46,8 +46,8 @@ public class Playersfile implements PlayerDialog {
 	}
 
 	@Override
-	public void output(int[] playerpoints) {
-		fileoutput.println(playerpoints[0]+" "+playerpoints[1]);
+	public void output(int roundsplayed,int[] playerpoints) {
+		fileoutput.println("Round "+roundsplayed+", Player A: "+playerpoints[0]+", Player B: "+playerpoints[1]);
 		fileoutput.flush();
 	}
 
