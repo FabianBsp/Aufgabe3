@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.regex.Pattern;
 
 /** Test fuer ein Undercut-Programm.
- * @author R. Schiedermeier, rs@cs.hm.edu
+ * @author R. Schiedermeier, rs@cs.hm.edu   
  * @version 2018-03-30
  */
 @RunWith(Parameterized.class) public class UndercutMonoTest {
@@ -48,7 +48,7 @@ import java.util.regex.Pattern;
         {"35533553355335535555", "Player A: 42, Player B: 42.+Tie"},
         {"35533553355335535545", "Player A: 46, Player B: 37.+Player A wins"},
         {"35533553355335535554", "Player A: 37, Player B: 46.+Player B wins"},
-        {"", "."}, // Stopper, ohne Funktion */
+        {"", "."}, // Stopper, ohne Funktion //*/
                              });
     }
 
