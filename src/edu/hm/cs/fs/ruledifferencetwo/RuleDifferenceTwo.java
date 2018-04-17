@@ -2,13 +2,29 @@ package edu.hm.cs.fs.ruledifferencetwo;
 
 import aufg3.interfaces.Rules;
 
+/**
+ * RuleDifferenceTwo controlls the game logic of
+ * UndercutMonoNew.
+ * @author sinning
+ * */
 public class RuleDifferenceTwo implements Rules {
 	private int counterequals;
 	
+	/**
+	 * Default Contructor.
+	 * */
 	public RuleDifferenceTwo() {
 		counterequals = 0;
 	}
 
+	/**
+	 * Calculates the new scores of PlayerA and PlayerB.
+	 * @param scorePlayerA the score of PlayerA
+	 * @param scorePlayerB the score of PlayerB
+	 * @param inputA the input of PlayerA
+	 * @param inputB the input of PlayerB
+	 * @return the new score of PlayerA and PlayerB
+	 * */
 	@Override
 	public int[] calculateNewScores(int scorePlayerA, int scorePlayerB, int inputA, int inputB){
 		if(Math.abs(inputA - inputB) >= 2) {

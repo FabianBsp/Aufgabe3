@@ -10,17 +10,32 @@ import edu.hm.cs.fs.normal.Normal;
 import edu.hm.cs.fs.playerskeyboard.Playerskeyboard;
 import edu.hm.cs.fs.ruledifferencetwo.RuleDifferenceTwo;
 import edu.hm.cs.fs.rulenormal.RuleNormal;
+import edu.hm.cs.fs.shortgame.ShortGame;
 
+/**
+ * The new version of UndercutMono.
+ * @author sinning
+ */
 public class UndercutMonoNew {
 
+	/**
+     * Entry point.
+     * @param args Commandline args: none.
+     * @exception IOException on incomplete input.
+     */
 	public static void main(String[] args) throws IOException{
-		Parameters properties = new Chaos();
+		Parameters properties = new ShortGame();
 		PlayerDialog inputinterface = new Playerskeyboard();
-		Rules rule = new RuleDifferenceTwo();
+		Rules rule = new RuleNormal();
 		
 		new UndercutMonoNew().play(properties,inputinterface,rule);
 	}
 	
+	/**
+     * Runs an Undercut game.
+     * Gets input from System.in, prints output to System.out.
+     * @exception IOException on incomplete input.
+     */
 	public void play(Parameters properties,PlayerDialog dialog,Rules rule) throws IOException{
 		int playerAScore = 0;
         int playerBScore = 0;
@@ -60,6 +75,11 @@ public class UndercutMonoNew {
         	dialog.messageEnding(1);
 	}
 	
+	/**
+	 * Returns the choices for PlayerA and PlayerB
+	 * @author sinning
+	 * @return The choices for PlayerA and PlayerB
+	 * */
 	private int[][] getPlayerAandPlayerBChoices(Parameters properties){
 		if(properties instanceof Chaos) {	// 2 Wahlmöglichkeiten jeweils für SpielerA und SpielerB
 			int[][] retarr = new int[][] {properties.getChoices()[0],properties.getChoices()[1]};

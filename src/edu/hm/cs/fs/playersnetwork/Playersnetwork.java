@@ -10,6 +10,10 @@ import java.net.Socket;
 
 import aufg3.interfaces.PlayerDialog;
 
+/**
+ * Handles communication with a network client.
+ * @author sinning
+ * */
 public class Playersnetwork implements PlayerDialog {
 	private Socket socket1;
 	private Socket socket2;
@@ -19,10 +23,17 @@ public class Playersnetwork implements PlayerDialog {
 	private PrintWriter out1;
 	private PrintWriter out2;
 	
+	/**
+	 * Default Constructor.
+	 * */
 	public Playersnetwork() {
 		initialize();
 	}
 	
+	/**
+	 * initializes everything to handle client-server communication.
+	 * @author sinning
+	 * */
 	private void initialize() {
 		try {
 			ServerSocket ss = new ServerSocket(2001);
@@ -45,6 +56,11 @@ public class Playersnetwork implements PlayerDialog {
 		}catch(IOException e) {}
 	}
 	
+	/**
+	 * tests if the input is correct.
+	 * @param choice the clients choice
+	 * @param eingabe the clients input
+	 * */
 	private boolean correctinput(int[] choice, int eingabe){
 		if(choice.length > 2) {
 			for(int elem: choice) {
@@ -55,6 +71,11 @@ public class Playersnetwork implements PlayerDialog {
 		return (eingabe >= choice[0] && eingabe <= choice[1]);
 	}
 	
+	/**
+	 * Sends message to the client.
+	 * @param playertyp the identification of a client
+	 * @param choices the choices a player has
+	 * */
 	private void setMessage(String playertyp,int[] choices) {
 		 if(choices.length==2) {
 			 	int min = getMinChoice(choices);
@@ -80,6 +101,12 @@ public class Playersnetwork implements PlayerDialog {
 			}
 	 }
 
+	/**
+	 * input is called to get the Players input.
+	 * @param playertyp the identification of a player
+	 * @param choices the choices a player has
+	 * @return the players input
+	 * */
 	@Override
 	public int input(int playertyp,int[]... choices) {
 		int picka=0;
@@ -131,6 +158,10 @@ public class Playersnetwork implements PlayerDialog {
 		return 0;
 	}
 	
+	/**
+	 * closes all resources which handles client server communication.
+	 * @throws IOException if an IO Error occurs
+	 * */
 	@Override
 	public void close() throws IOException {
 		socket1.close();
@@ -141,6 +172,11 @@ public class Playersnetwork implements PlayerDialog {
 		out2.close();
 	}
 
+	/**
+	 * sends Round information to the client.
+	 * @param roundsplayed the number of rounds that have been played
+	 * @param playerpoints the scores of both players
+	 * */
 	@Override
 	public void output(int roundsplayed,int[] playerpoints) { //Player A: 1, Player B: 1
 			out1.println("Round "+roundsplayed+", Player A: "+playerpoints[0]+", Player B: "+playerpoints[1]);
@@ -149,11 +185,21 @@ public class Playersnetwork implements PlayerDialog {
 			out2.flush();
 	}
 
+	/**
+	 * returns the minimum choice number of a player.
+	 * @param choices the choices a player has
+	 * @return the minimum choice
+	 * */
 	@Override
 	public int getMinChoice(int[] choices) {
 		return choices[0];
 	}
 
+	/**
+	 * returns the maximum choice number of a player.
+	 * @param choices the choices a player has
+	 * @return the maximum choice
+	 * */
 	@Override
 	public int getMaxChoice(int[] choices) {
 		int max = 0;
@@ -165,12 +211,22 @@ public class Playersnetwork implements PlayerDialog {
 		return max;
 	}
 
+	/**
+	 * checks if the input is correct.
+	 * @param choice the choice a player has
+	 * @param choices the choices a player has
+	 * @boolean returns if the player input is correct
+	 * */
 	@Override
 	public boolean checkinput(int choice,int[] choices) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/**
+	 * informs both players who has won the game.
+	 * @param identification of a player
+	 * */
 	@Override
 	public void messageEnding(int playerwinner) {
 		if(playerwinner == -1) {
