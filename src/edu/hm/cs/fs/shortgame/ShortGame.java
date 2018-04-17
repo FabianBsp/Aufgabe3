@@ -1,8 +1,8 @@
 package edu.hm.cs.fs.shortgame;
 
-import aufg3.interfaces.Properties;
+import aufg3.interfaces.Parameters;
 
-public class ShortGame implements Properties {
+public class ShortGame implements Parameters {
 
 	@Override
 	public int getScoreToWin() {

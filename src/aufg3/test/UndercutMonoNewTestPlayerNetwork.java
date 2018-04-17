@@ -32,19 +32,18 @@ class UndercutMonoNewTestPlayerNetwork {
 				OutputStreamWriter out1 = new OutputStreamWriter(clienta.getOutputStream());
 				OutputStreamWriter out2 =  new OutputStreamWriter(clientb.getOutputStream());){
 				
-				
-				System.out.println(in1.readLine());
-				System.out.println(in1.readLine());
-			/*	out1.write("2");
+				String string = in1.readLine();
+				//System.out.println(in1.readLine());
+				//System.out.println(in1.readLine());
+				out1.write("2");
 				out1.flush();
 				out2.write("3");
-				out2.flush(); */
-				//assertEquals("Undercut start",in1.readLine());
+				out2.flush(); 
+				//assertEquals("Undercut start",string);
+				assertTrue(string.matches("Undercut start"));
 				//assertEquals("Undercut start",in1.readLine());
 				System.out.println("Hallo");
 				System.out.println(in2.readLine());
-			//	assertEquals("Undercut start",in1.readLine());
-			//	assertEquals("Undercut start",in2.readLine());
 				
 			}
 		}

@@ -44,7 +44,7 @@ public class TwoPointsDifferentRules_InstableGameParameters {
 				{ "1323", "Player A: 5, Player B: 4" }, 
 				{ "344334434334344334434334", "Player A: 35, Player B: 42.+Player B wins" },
 				{ "344334434334344334434554", "Player A: 44, Player B: 35.+Player A wins" },
-				{ "3333333333333333333333333333", "Player A: 42, Player B: 42.+Tie" },
+				{ "3333333333333333333333333333", "Tie" },
 				{ "", "." }, // Stopper, ohne
 																										// Funktion
 		});

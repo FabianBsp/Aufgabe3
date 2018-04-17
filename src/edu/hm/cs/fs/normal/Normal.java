@@ -1,8 +1,8 @@
 package edu.hm.cs.fs.normal;
 
-import aufg3.interfaces.Properties;
+import aufg3.interfaces.Parameters;
 
-public class Normal implements Properties {
+public class Normal implements Parameters {
 
 	@Override
 	public int getScoreToWin() {

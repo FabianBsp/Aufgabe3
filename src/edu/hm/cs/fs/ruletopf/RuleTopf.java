@@ -39,7 +39,7 @@ public class RuleTopf implements Rules {
 		else if(inputA == inputB) {
 			counterequals++;
 			if(counterequals > 3){
-				return new int[] {-1*scorePlayerA,-1*scorePlayerB};
+				return new int[] {-1000+scorePlayerA,-1000+scorePlayerB};
 			}
 			topf += (inputA+inputB);
 		}

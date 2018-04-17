@@ -1,6 +1,6 @@
 package aufg3.interfaces;
 
-public interface Properties {
+public interface Parameters {
 	int getScoreToWin();
 	int[][] getChoices(); // getvalidChoices()
 }

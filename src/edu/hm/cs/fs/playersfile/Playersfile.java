@@ -102,7 +102,7 @@ public class Playersfile implements PlayerDialog {
 				catch(IOException e) {}
 			
 			}
-		return 0;//new int[]{choiceA,choiceB};
+		return 0;
 	}
 
 	@Override

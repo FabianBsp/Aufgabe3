@@ -1,8 +1,8 @@
 package edu.hm.cs.fs.chaos;
 
-import aufg3.interfaces.Properties;
+import aufg3.interfaces.Parameters;
 
-public class Chaos implements Properties {
+public class Chaos implements Parameters {
 	private int indexA;
 	private int indexB;
 	private int[][] choices = new int[][] {{1,4},{2,5},{1,3,5}};

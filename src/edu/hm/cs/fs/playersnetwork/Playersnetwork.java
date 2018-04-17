@@ -1,14 +1,12 @@
 package edu.hm.cs.fs.playersnetwork;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.stream.IntStream;
 
 import aufg3.interfaces.PlayerDialog;
 
@@ -30,12 +28,10 @@ public class Playersnetwork implements PlayerDialog {
 			ServerSocket ss = new ServerSocket(2001);
 			
 			socket1 = ss.accept();
-		//	System.out.println("Sock1 verbunden");
 			ss.close();
 			ServerSocket ss2 = new ServerSocket(2002);
 			
 			socket2 = ss2.accept();
-		//	System.out.println("Sock2 verbunden");
 			ss2.close();
 			
 			 in1 = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
@@ -112,8 +108,6 @@ public class Playersnetwork implements PlayerDialog {
 			catch(IOException e) {}
 			}
 			else {
-			
-				String messageB = "";
 				int[] choiceB = choices[1];
 				boolean b;
 				setMessage("Player B", choices[1]);
@@ -135,54 +129,6 @@ public class Playersnetwork implements PlayerDialog {
 			
 			}
 		return 0;
-		
-
-			//int[] choiceA = choices[0];
-			//int[] choiceB = choices[1];
-			//boolean b;
-			
-			//String messageA = "";
-			//String messageB = "";
-			
-			//	messageA = messageAsString(choiceA,"Player A");
-			//	messageB = messageAsString(choiceB,"Player B");
-		/*	
-			try {
-				//out1.write(messageA); // potentielles Problem: a wird gesendet, b aber nicht. a steht in file,
-									  // beide müssen ihren Wert neu eingeben -> ein Wert zu viel bei a.
-				//out1.flush();
-			
-				out2.write(messageB); 
-				out2.flush();
-				
-			/* do{
-				final int pickA = Integer.parseInt(in1.readLine());
-				b = correctinput(choiceA,pickA);
-				if(b) {
-					picka = pickA;
-					break;
-				}
-				out1.println(messageA); 
-				out1.flush();
-			 }
-			 while(!b); */
-			 
-			/* do{
-				final int pickB = Integer.parseInt(in2.readLine());
-				b = correctinput(choiceB, pickB);
-				if(b) {
-					pickb = pickB;
-					break;
-				}
-				out2.println(messageB); 
-				out2.flush();
-			 }
-			 while(!b);
-			}
-			catch(IOException e) {}
-		
-		return new int[]{picka,pickb}; */
-	
 	}
 	
 	@Override
