@@ -16,20 +16,20 @@ public class RuleNormal implements Rules {
 			else {
 				scorePlayerB += (inputA + inputB);
 			}
-			counterequals = 0;
+			//counterequals = 0;
 		}
 		else if(inputA == inputB) {
-			counterequals++;
-			if(counterequals > 3){
-				return new int[] {-1,-1};
-			}
+			//counterequals++;
+			//if(counterequals > 3){
+			//	return new int[] {-1,-1};
+			//}
 			scorePlayerA += inputA;
 			scorePlayerB += inputB;
 		}
 		else {
 			scorePlayerA += inputA;
 			scorePlayerB += inputB;
-			counterequals = 0;
+			//counterequals = 0;
 		}
 		return new int[] {scorePlayerA,scorePlayerB};
 	}

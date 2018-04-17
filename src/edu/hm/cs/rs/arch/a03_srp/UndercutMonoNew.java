@@ -12,13 +12,14 @@ import edu.hm.cs.fs.playerskeyboard.Playerskeyboard;
 import edu.hm.cs.fs.playersnetwork.Playersnetwork;
 import edu.hm.cs.fs.ruledifferencetwo.RuleDifferenceTwo;
 import edu.hm.cs.fs.rulenormal.RuleNormal;
+import edu.hm.cs.fs.ruletopf.RuleTopf;
 import edu.hm.cs.fs.shortgame.ShortGame;
 
 public class UndercutMonoNew {
 
 	public static void main(String[] args) throws IOException{
-		Properties properties = new Normal();
-		PlayerDialog inputinterface = new Playerskeyboard();
+		Properties properties = new ShortGame();
+		PlayerDialog inputinterface = new Playersnetwork();
 		Rules rule = new RuleNormal();
 		
 		new UndercutMonoNew().play(properties,inputinterface,rule);
@@ -34,7 +35,8 @@ public class UndercutMonoNew {
         int scoreToWin = properties.getScoreToWin();
         
         
-		while(playerAScore < scoreToWin && playerBScore < scoreToWin) {
+		while(playerAScore < scoreToWin && playerBScore < scoreToWin &&
+				(playerAScore > -1 && playerBScore > -1)) {
 			
 			int[][] choices = getPlayerAandPlayerBChoices(properties);
 			//maxChoice = choices[choices.length-1][choices.length-1];

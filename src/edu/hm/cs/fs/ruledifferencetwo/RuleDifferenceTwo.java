@@ -3,9 +3,11 @@ package edu.hm.cs.fs.ruledifferencetwo;
 import aufg3.interfaces.Rules;
 
 public class RuleDifferenceTwo implements Rules {
-	private int counterequals=0;
+	private int counterequals;
 	
-	public RuleDifferenceTwo() {}
+	public RuleDifferenceTwo() {
+		counterequals = 0;
+	}
 
 	@Override
 	public int[] calculateNewScores(int scorePlayerA, int scorePlayerB, int inputA, int inputB){
@@ -23,8 +25,17 @@ public class RuleDifferenceTwo implements Rules {
 			scorePlayerA += inputA;
 			scorePlayerB += inputB;
 			if(counterequals > 3) {
-				return new int[]{-1,-1};
+				return new int[]{-1*scorePlayerA,-1*scorePlayerB};
 			}
+		}
+		else if(Math.abs(inputA - inputB) == 1) {
+			if(inputA < inputB) {
+				scorePlayerA += (inputA+inputB);
+			}
+			else {
+				scorePlayerB += (inputA+inputB);
+			}
+			counterequals = 0;
 		}
 		else {
 			scorePlayerA += inputA;
