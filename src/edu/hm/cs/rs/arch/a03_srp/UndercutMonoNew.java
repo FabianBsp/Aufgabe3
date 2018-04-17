@@ -10,20 +10,21 @@ import edu.hm.cs.fs.normal.Normal;
 import edu.hm.cs.fs.playersfile.Playersfile;
 import edu.hm.cs.fs.playerskeyboard.Playerskeyboard;
 import edu.hm.cs.fs.playersnetwork.Playersnetwork;
+import edu.hm.cs.fs.ruledifferencetwo.RuleDifferenceTwo;
 import edu.hm.cs.fs.rulenormal.RuleNormal;
 import edu.hm.cs.fs.shortgame.ShortGame;
 
 public class UndercutMonoNew {
 
-	public static void main(String[] args) {
-		Properties properties = new Normal();
-		PlayerDialog inputinterface = new Playerskeyboard();
+	public static void main(String[] args) throws IOException{
+		Properties properties = new ShortGame();
+		PlayerDialog inputinterface = new Playersfile();
 		Rules rule = new RuleNormal();
 		
 		new UndercutMonoNew().play(properties,inputinterface,rule);
 	}
 	
-	public void play(Properties properties,PlayerDialog dialog,Rules rule) {
+	public void play(Properties properties,PlayerDialog dialog,Rules rule) throws IOException{
 		int playerAScore = 0;
         int playerBScore = 0;
         int playerAChoice;
@@ -36,20 +37,20 @@ public class UndercutMonoNew {
 		while(playerAScore < scoreToWin && playerBScore < scoreToWin) {
 			
 			int[][] choices = getPlayerAandPlayerBChoices(properties);
-			maxChoice = choices[choices.length-1][choices.length-1];
+			//maxChoice = choices[choices.length-1][choices.length-1];
 			
 			//System.out.println(maxChoice);
 			//do {
-                final int input = dialog.input(0,maxChoice,1,choices);
+                final int input = dialog.input(0,choices);
                 //if(input < 0)
-                //   throw new IOException(); // bomb out on end of input
+                  //throw new IOException(); // bomb out on end of input
                 playerAChoice = input;//input - '0';
           //  }while(playerAChoice < 1 || playerAChoice > maxChoice);
 			
 		//	do {
-                final int input2 = dialog.input(1,maxChoice,1,choices);
-                //if(input < 0)
-                //   throw new IOException(); // bomb out on end of input
+                final int input2 = dialog.input(1,choices);
+               // if(input < 0)
+                 //  throw new IOException(); // bomb out on end of input
                 playerBChoice = input2;//input - '0';
         //   }while(playerBChoice < 1 || playerBChoice > maxChoice);
 			

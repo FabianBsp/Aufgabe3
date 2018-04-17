@@ -20,6 +20,8 @@ public class RuleDifferenceTwo implements Rules {
 		}
 		else if(inputA == inputB){
 			counterequals++;
+			scorePlayerA += inputA;
+			scorePlayerB += inputB;
 			if(counterequals > 3) {
 				return new int[]{-1,-1};
 			}
