@@ -140,4 +140,14 @@ public class Playerskeyboard implements PlayerDialog {
 		}
 	}
 
+	@Override
+	public void messageEnding(int playerwinner) {
+		if(playerwinner == -1)
+			System.out.println("Tie");
+		else if(playerwinner == 0)
+			System.out.println("Player A wins");
+		else if(playerwinner == 1)
+			System.out.println("Player B wins");
+	}
+
 }

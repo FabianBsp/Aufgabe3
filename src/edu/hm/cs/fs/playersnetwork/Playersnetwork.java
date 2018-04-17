@@ -224,4 +224,28 @@ public class Playersnetwork implements PlayerDialog {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public void messageEnding(int playerwinner) {
+		if(playerwinner == -1) {
+			out1.println("Tie");
+			out1.flush();
+			out2.println("Tie");
+			out2.flush();
+		}
+		else if(playerwinner == 0) {
+			out1.println("Player A wins");
+			out1.flush();
+			out2.println("Player A wins");
+			out2.flush();
+		}
+		else if(playerwinner == 1){
+			out1.println("Player B wins");
+			out1.flush();
+			out2.println("Player B wins");
+			out2.flush();
+		}
+		out1.close();
+		out2.close();
+	}
 }

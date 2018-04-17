@@ -139,4 +139,15 @@ public class Playersfile implements PlayerDialog {
 		return false;
 	}
 
+	@Override
+	public void messageEnding(int playerwinner) {
+		if(playerwinner == -1)
+			fileoutput.println("Tie");
+		else if(playerwinner == 0)
+			fileoutput.println("Player A wins");
+		else if(playerwinner == 1)
+			fileoutput.println("Player B wins");
+		fileoutput.close();
+	}
+
 }

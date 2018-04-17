@@ -17,8 +17,8 @@ import edu.hm.cs.fs.shortgame.ShortGame;
 public class UndercutMonoNew {
 
 	public static void main(String[] args) throws IOException{
-		Properties properties = new ShortGame();
-		PlayerDialog inputinterface = new Playersfile();
+		Properties properties = new Normal();
+		PlayerDialog inputinterface = new Playerskeyboard();
 		Rules rule = new RuleNormal();
 		
 		new UndercutMonoNew().play(properties,inputinterface,rule);
@@ -75,11 +75,14 @@ public class UndercutMonoNew {
 		}
 		// announce final results to both players
         if(playerAScore == playerBScore)
-            System.out.println("Tie");
+        	dialog.messageEnding(-1);
+            //System.out.println("Tie");
         else if(playerAScore > playerBScore)
-            System.out.println("Player A wins");
+        	dialog.messageEnding(0);
+           // System.out.println("Player A wins");
         else
-            System.out.println("Player B wins");
+        	dialog.messageEnding(1);
+           // System.out.println("Player B wins");
 	}
 	
 	private boolean threeTimesEqualOrFinish(int[] scorePlayerAB,Properties properties) {

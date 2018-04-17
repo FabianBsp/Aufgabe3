@@ -9,4 +9,5 @@ public interface PlayerDialog {
 	int getMinChoice(int[] choices);
 	int getMaxChoice(int[] choices);
 	boolean checkinput(int choice,int[] choices);
+	void messageEnding(int playerwinner);
 }
