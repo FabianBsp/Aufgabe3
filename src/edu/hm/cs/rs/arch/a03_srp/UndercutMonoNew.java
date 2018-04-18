@@ -81,12 +81,12 @@ public class UndercutMonoNew {
 	 * @return The choices for PlayerA and PlayerB
 	 * */
 	private int[][] getPlayerAandPlayerBChoices(Parameters properties){
-		if(properties instanceof Chaos) {	// 2 Wahlmöglichkeiten jeweils für SpielerA und SpielerB
+		if(properties instanceof Chaos) {	// 2 Wahlmoeglichkeiten jeweils fuer SpielerA und SpielerB
 			int[][] retarr = new int[][] {properties.getChoices()[0],properties.getChoices()[1]};
 			((Chaos) properties).nextindices();
 			return retarr;
 		}
-		else { // eine Wahlmöglichkeit für beide Spieler
+		else { // eine Wahlmoeglichkeit für beide Spieler
 			return new int[][] {properties.getChoices()[0],properties.getChoices()[0],};
 		}
 	}

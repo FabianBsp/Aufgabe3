@@ -3,7 +3,7 @@ package edu.hm.cs.fs.ruledifferencetwo;
 import aufg3.interfaces.Rules;
 
 /**
- * RuleDifferenceTwo controlls the game logic of
+ * RuleDifferenceTwo controls the game logic of
  * UndercutMonoNew.
  * @author sinning
  * */
@@ -11,7 +11,7 @@ public class RuleDifferenceTwo implements Rules {
 	private int counterequals;
 	
 	/**
-	 * Default Contructor.
+	 * Default Constructor.
 	 * */
 	public RuleDifferenceTwo() {
 		counterequals = 0;
