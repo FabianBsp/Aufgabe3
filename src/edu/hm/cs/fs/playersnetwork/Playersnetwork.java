@@ -15,12 +15,30 @@ import aufg3.interfaces.PlayerDialog;
  * @author sinning
  * */
 public class Playersnetwork implements PlayerDialog {
+	/**
+	 * Socket to playerA.
+	 * */
 	private Socket socket1;
+	/**
+	 * Socket to playerB.
+	 * */
 	private Socket socket2;
 	
+	/**
+	 * BufferedReader to playerA.
+	 * */
 	private BufferedReader in1;
+	/**
+	 * Socket to playerB.
+	 * */
 	private BufferedReader in2;
+	/**
+	 * PrintWriter to playerA.
+	 * */
 	private PrintWriter out1;
+	/**
+	 * Socket to playerB.
+	 * */
 	private PrintWriter out2;
 	
 	/**

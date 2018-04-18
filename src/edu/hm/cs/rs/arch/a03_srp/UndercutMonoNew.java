@@ -24,7 +24,7 @@ public class UndercutMonoNew {
      * @exception IOException on incomplete input.
      */
 	public static void main(String[] args) throws IOException{
-		Parameters properties = new ShortGame();
+		Parameters properties = new Normal();
 		PlayerDialog inputinterface = new Playerskeyboard();
 		Rules rule = new RuleNormal();
 		
